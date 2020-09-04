@@ -1,1 +1,1 @@
-Try to build CapNProto via github actions
+GitHub actions to build [Cap’n Proto](https://capnproto.org/) library for all standard hosts.

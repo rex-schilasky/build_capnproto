@@ -1,0 +1,19 @@
+name: Build macOS Catalina 10.15
+
+on: [push]
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Install Cap’n Proto
+      run: |
+        mkdir "${{ runner.workspace }}/capnp"
+        cd "${{ runner.workspace }}/capnp"
+        curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
+        tar zxf capnproto-c++-0.8.0.tar.gz
+        cd capnproto-c++-0.8.0
+        ./configure
+        make -j
+        sudo make install
