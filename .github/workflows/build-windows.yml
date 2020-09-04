@@ -1,0 +1,22 @@
+name: Build Windows Server 2019
+
+on: [push]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Building / Installing Cap’n Proto
+      run: |
+        mkdir "${{ runner.workspace }}/capnp"
+        cd "${{ runner.workspace }}/capnp"
+        git clone https://github.com/sandstorm-io/capnproto.git
+        cd capnproto
+        git checkout release-0.8.0
+        cd c++
+        mkdir _build
+        cd _build
+        cmake .. -G "Visual Studio 16 2019" -A x64
+        cmake --build . --parallel --config Release
+        cmake --build . --target install --config Release
