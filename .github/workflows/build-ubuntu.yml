@@ -6,6 +6,7 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-20.04
 
+    steps:
     - name: Install Cap’n Proto
       run: |
         mkdir "${{ runner.workspace }}/capnp"
