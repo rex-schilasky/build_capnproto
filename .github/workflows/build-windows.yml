@@ -17,6 +17,6 @@ jobs:
         cd c++
         mkdir _build
         cd _build
-        cmake .. -G "Visual Studio 16 2019" -A x64
+        cmake .. -G "Visual Studio 16 2019" -A x64 -T v140
         cmake --build . --parallel --config Release
         cmake --build . --target install --config Release
